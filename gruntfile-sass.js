@@ -8,15 +8,18 @@ module.exports = function(grunt) {
       }
     },
     watch: {
-      compile: {
-        files: ['*.sass'],
-        tasks: ['sass']
-      }
+      css: {
+        files: ['app/sass/*.sass'],
+        tasks: ['sass'],
+        options: {
+          livereload: true,
+        },
+      },
     }
   });
 
   // Load the npm installed tasks
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-sass');
-  grunt.registerTask('default', ['watch']);
+  grunt.registerTask('default', ['sass','watch']);
 };
